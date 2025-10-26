@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Result Portal</title>
+    <link rel="stylesheet" href="styless.css">
+</head>
+
+<body>
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay">
+        <div class="spinner"></div>
+    </div>
+
+    <!-- Student Result View -->
+    <div id="studentView" class="container">
+        <div class="header glass-effect">
+            <h1>🎓  FRM Students Result Portal</h1>
+            <button id="adminLoginBtn" class="admin-btn glass-btn">Usthad Login</button>
+        </div>
+
+        <div class="card glass-effect">
+            <h2>View Your Results</h2>
+            <form id="studentForm">
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input type="text" id="studentName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Class</label>
+                    <select id="studentClass" required>
+                        <option value="">Select Class</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Register Number</label>
+                    <input type="text" id="registerNumber" placeholder="Enter register number" required>
+                </div>
+
+                <button type="submit" class="btn-primary glass-btn">View Result</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Result Display -->
+    <div id="resultView" class="container hidden">
+        <div class="header glass-effect">
+            <h1>🎓 Student Result</h1>
+            <button id="backToHome" class="admin-btn glass-btn">Back to Home</button>
+        </div>
+
+        <div class="card glass-effect result-card">
+            <div class="result-header">
+                <h2 id="resultStudentName"></h2>
+                <p>Class: <span id="resultClass"></span> | Register No: <span id="resultRegNo"></span></p>
+            </div>
+
+            <table class="result-table glass-table">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Marks</th>
+                        <th>Grade</th>
+                    </tr>
+                </thead>
+                <tbody id="marksTableBody">
+                </tbody>
+            </table>
+
+            <div class="result-summary">
+                <div class="summary-item">
+                    <span>Total Marks:</span>
+                    <strong id="totalMarks">0</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Percentage:</span>
+                    <strong id="percentage">0%</strong>
+                </div>
+                <div class="summary-item">
+                    <span>Overall Grade:</span>
+                    <strong id="overallGrade">-</strong>
+                </div>
+            </div>
+
+            <div class="remarks" id="remarksSection">
+                <h3>Remarks</h3>
+                <p id="remarksText"></p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Login Modal -->
+    <div id="loginModal" class="modal hidden">
+        <div class="modal-content glass-effect">
+            <span class="close">&times;</span>
+            <h2>Usthad Login</h2>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Username</label>
+                    <input type="text" id="adminUsername" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+
+                <button type="submit" class="btn-primary glass-btn">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Dashboard -->
+    <div id="adminDashboard" class="container hidden">
+        <div class="header glass-effect">
+            <h1>📊 Admin Dashboard</h1>
+            <button id="logoutBtn" class="admin-btn glass-btn">Logout</button>
+        </div>
+
+        <!-- Step 1: Class Setup -->
+        <div id="step1" class="card glass-effect">
+            <h2>Step 1: Class Setup</h2>
+            <form id="classSetupForm">
+                <div class="form-group">
+                    <label>Select Class</label>
+                    <select id="adminClass" required>
+                        <option value="">Select Class</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Number of Students</label>
+                    <input type="number" id="numStudents" min="1" required>
+                </div>
+
+                <button type="submit" class="btn-primary glass-btn">Next</button>
+            </form>
+        </div>
+
+        <!-- Step 2: Subject Setup -->
+        <div id="step2" class="card glass-effect hidden">
+            <h2>Step 2: Subject Setup</h2>
+            <div class="info-box glass-effect">
+                <p>Class: <strong id="selectedClass"></strong></p>
+                <p>Number of Students: <strong id="selectedStudents"></strong></p>
+            </div>
+
+            <form id="subjectSetupForm">
+                <div class="form-group">
+                    <label>Number of Subjects</label>
+                    <input type="number" id="numSubjects" min="1" max="15" required>
+                </div>
+
+                <div id="subjectInputs"></div>
+
+                <button type="button" id="generateSubjects" class="btn-secondary glass-btn">Generate Subject
+                    Fields</button>
+                <button type="submit" class="btn-primary glass-btn hidden" id="nextToMarks">Next</button>
+            </form>
+        </div>
+
+        <!-- Step 3: Marks Entry -->
+        <div id="step3" class="card glass-effect hidden">
+            <h2>Step 3: Enter Marks</h2>
+            <div class="info-box glass-effect">
+                <p>Class: <strong id="selectedClass2"></strong></p>
+                <p>Students: <strong id="selectedStudents2"></strong></p>
+                <p>Subjects: <strong id="selectedSubjects"></strong></p>
+            </div>
+
+            <form id="marksEntryForm">
+                <div id="studentsMarksContainer"></div>
+
+                <button type="submit" class="btn-primary glass-btn">Submit All Results</button>
+            </form>
+        </div>
+
+        <!-- Success Message -->
+        <div id="successMessage" class="card glass-effect hidden success-card">
+            <h2>✅ Success!</h2>
+            <p>All results have been saved successfully!</p>
+            <button id="addMoreResults" class="btn-primary glass-btn">Add More Results</button>
+        </div>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+
+</html>

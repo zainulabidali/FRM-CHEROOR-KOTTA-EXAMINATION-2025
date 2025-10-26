@@ -1,0 +1,64 @@
+{
+    "classes": {
+        "10": {
+            "students": {
+                "REG1001": {
+                    "name": "Amin Muhammad",
+                    "class": "10",
+                    "regNo": "REG1001",
+                    "marks": {
+                        "Malayalam": 85,
+                        "English": 78,
+                        "Mathematics": 92,
+                        "Physical Education": 88,
+                        "Science": 90
+                    },
+                    "remarks": "Good performance. Need to focus more on English."
+                },
+                "REG1002": {
+                    "name": "Anand Kumar",
+                    "class": "10",
+                    "regNo": "REG1002",
+                    "marks": {
+                        "Malayalam": 76,
+                        "English": 82,
+                        "Mathematics": 85,
+                        "Physical Education": 79,
+                        "Science": 88
+                    },
+                    "remarks": "Consistent performance. Good improvement in Mathematics."
+                },
+                "REG1003": {
+                    "name": "Geetha Priya",
+                    "class": "10",
+                    "regNo": "REG1003",
+                    "marks": {
+                        "Malayalam": 94,
+                        "English": 89,
+                        "Mathematics": 91,
+                        "Physical Education": 93,
+                        "Science": 95
+                    },
+                    "remarks": "Outstanding performance. Good attention in all subjects."
+                }
+            }
+        },
+        "12": {
+            "students": {
+                "REG1201": {
+                    "name": "Kiran Kumar",
+                    "class": "12",
+                    "regNo": "REG1201",
+                    "marks": {
+                        "English": 88,
+                        "Mathematics": 92,
+                        "Physics": 85,
+                        "Chemistry": 87,
+                        "Biology": 90
+                    },
+                    "remarks": "Dedicated study. Well prepared for exams."
+                }
+            }
+        }
+    }
+}
