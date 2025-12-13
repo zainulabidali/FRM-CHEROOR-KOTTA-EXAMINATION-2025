@@ -17,7 +17,7 @@
     <!-- Student Result View -->
     <div id="studentView" class="container">
         <div class="header glass-effect">
-            <h1>🎓  FRM Students Result Portal</h1>
+            <h1>🎓 FRM Students Result Portal</h1>
             <button id="adminLoginBtn" class="admin-btn glass-btn">Usthad Login</button>
         </div>
 
@@ -133,6 +133,50 @@
             <button id="logoutBtn" class="admin-btn glass-btn">Logout</button>
         </div>
 
+        <!-- Manage Results Section -->
+        <div id="manageResults" class="card glass-effect">
+            <h2>📝 Manage Results</h2>
+            <div class="form-group">
+                <label>Select Class to View/Edit</label>
+                <div style="display: flex; gap: 10px;">
+                    <select id="manageClassSelect" style="flex: 1;">
+                        <option value="">Select Class</option>
+                        <option value="1">Class 1</option>
+                        <option value="2">Class 2</option>
+                        <option value="3">Class 3</option>
+                        <option value="4">Class 4</option>
+                        <option value="5">Class 5</option>
+                        <option value="6">Class 6</option>
+                        <option value="7">Class 7</option>
+                        <option value="8">Class 8</option>
+                        <option value="9">Class 9</option>
+                        <option value="10">Class 10</option>
+                        <option value="11">Class 11</option>
+                        <option value="12">Class 12</option>
+                    </select>
+                    <button id="loadResultsBtn" class="btn-primary glass-btn">Load Results</button>
+                </div>
+            </div>
+
+            <div id="resultsTableContainer" class="hidden">
+                <table class="result-table glass-table">
+                    <thead>
+                        <tr>
+                            <th>Reg No</th>
+                            <th>Name</th>
+                            <th>Total</th>
+                            <th>%</th>
+                            <th>Result</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminResultsTableBody">
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
         <!-- Step 1: Class Setup -->
         <div id="step1" class="card glass-effect">
             <h2>Step 1: Class Setup</h2>
@@ -208,6 +252,40 @@
             <h2>✅ Success!</h2>
             <p>All results have been saved successfully!</p>
             <button id="addMoreResults" class="btn-primary glass-btn">Add More Results</button>
+        </div>
+    </div>
+
+    <!-- Edit Student Modal -->
+    <div id="editStudentModal" class="modal hidden">
+        <div class="modal-content glass-effect">
+            <span class="close" id="closeEditModal">&times;</span>
+            <h2>✏️ Edit Student</h2>
+            <form id="editStudentForm">
+                <input type="hidden" id="editOriginalRegNo">
+                <input type="hidden" id="editStudentClass">
+
+                <div class="form-group">
+                    <label>Student Name</label>
+                    <input type="text" id="editStudentName" required>
+                </div>
+
+                <div class="form-group">
+                    <label>Register Number</label>
+                    <input type="text" id="editRegNo" disabled
+                        style="background-color: rgba(0,0,0,0.05); cursor: not-allowed;">
+                </div>
+
+                <div id="editSubjectMarksContainer">
+                    <!-- Dynamic subject fields will go here -->
+                </div>
+
+                <div class="form-group">
+                    <label>Remarks</label>
+                    <textarea id="editRemarks"></textarea>
+                </div>
+
+                <button type="submit" class="btn-primary glass-btn">Save Changes</button>
+            </form>
         </div>
     </div>
 

@@ -16,7 +16,7 @@
                     "remarks": "Good performance. Need to focus more on English."
                 },
                 "REG1002": {
-                    "name": "Anand Kumar",
+                    "name": "Abi",
                     "class": "10",
                     "regNo": "REG1002",
                     "marks": {
@@ -29,7 +29,7 @@
                     "remarks": "Consistent performance. Good improvement in Mathematics."
                 },
                 "REG1003": {
-                    "name": "Geetha Priya",
+                    "name": "afsal",
                     "class": "10",
                     "regNo": "REG1003",
                     "marks": {
@@ -46,7 +46,7 @@
         "12": {
             "students": {
                 "REG1201": {
-                    "name": "Kiran Kumar",
+                    "name": "abid",
                     "class": "12",
                     "regNo": "REG1201",
                     "marks": {
