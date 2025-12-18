@@ -24,11 +24,40 @@
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: linear-gradient(135deg, #f0f4ff 0%, #e6f0ff 100%);
+    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
     color: var(--dark-color);
     line-height: 1.6;
     min-height: 100vh;
     padding: 20px;
+    background-attachment: fixed;
+    background-size: cover;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: '';
+    position: fixed;
+    width: 600px;
+    height: 600px;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    opacity: 0.4;
+    pointer-events: none;
+}
+
+body::before {
+    background: radial-gradient(circle, #4361ee 0%, transparent 70%);
+    top: -150px;
+    left: -150px;
+}
+
+body::after {
+    background: radial-gradient(circle, #650ba0d8 0%, transparent 70%);
+    bottom: -150px;
+    right: -150px;
 }
 
 body.result-page {
@@ -811,8 +840,8 @@ body.result-page {
     }
 
     .result-table {
-        display: block;
-        overflow-x: auto;
+        width: 100%;
+        font-size: 0.9rem;
     }
 
     .modal-content {
