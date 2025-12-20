@@ -24,7 +24,7 @@
 
 body {
     font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    background: radial-gradient(circle at center, #1e293b 0%, #0f172a 100%);
+    background: radial-gradient(circle at center, #bfd1ef 0%, #eceef5 100%);
     color: var(--dark-color);
     line-height: 1.6;
     min-height: 100vh;
